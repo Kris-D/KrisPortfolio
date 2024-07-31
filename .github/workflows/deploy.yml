@@ -14,11 +14,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Git LFS
-        run: |
-          git lfs install
-          git lfs pull
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -50,7 +45,7 @@ jobs:
           path: ./dist
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
